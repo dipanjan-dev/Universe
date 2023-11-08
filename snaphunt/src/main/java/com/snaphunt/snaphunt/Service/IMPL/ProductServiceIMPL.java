@@ -25,4 +25,13 @@ public class ProductServiceIMPL implements ProductService{
         return productRepository.getProductDetails(ProductName,ProductId);
     }
 
+    public List<Object[]> getProductTags() {
+        return productRepository.getProductTags();
+    }
+
+    @Override
+    public List<Product> getSeachList(String Data) {
+        return productRepository.getSeachList(Data);
+    }
+
 }

@@ -12,7 +12,7 @@
   <body>
     <%@include file="header.jsp" %>
     <div class="container mt-3 rounded-3">
-      <div class="swiper mySwiper rounded-3 shadow-lg">
+      <div class="swiper HomemySwiper rounded-3 shadow-lg">
         <div class="swiper-wrapper rounded-3 shadow-lg">
           <div class="swiper-slide sliders rounded-3"
             style="background: url('https://res.cloudinary.com/dcbbqwxzr/image/upload/v1692549914/SAMSUNG_Z_FOLD_iwjk1b.png') ;">
@@ -34,6 +34,7 @@
             <h5 class="section-title">Best smart phone for you</h5>
             <a href="">View all</a>
           </div>
+     
           <c:forEach items="${Allproducts}" var="product">
             <c:if test="${product.getCategory()=='electronics'}">
               <div class="col-lg-3">
@@ -42,7 +43,7 @@
                     <img src="${product.getMainImage()}" class="card-img-top">
                     <div class="card-body">
                       <h5 class="card-title">${product.getItemName()}</h5>
-                      <p class="card-text"><span>&#8377;</span> ${product.getMrp()}</p>
+                      <p class="card-text"><span>&#8377;</span> ${product.getBdp()}</p>
                     </div>
                   </div>
                 </a>
@@ -50,7 +51,27 @@
             </c:if>
           </c:forEach>
         </div>
-
+        <div class="row">
+          <div class="section-header">
+            <h5 class="section-title">Top Brand For footwear</h5>
+            <a href="">View all</a>
+          </div>
+          <c:forEach items="${Allproducts}" var="product">
+            <c:if test="${product.getSubCategory()=='Shoes and Footwear'}">
+              <div class="col-lg-3">
+                <a href="/product-view/${product.getProductId()}/${product.getItemName()}">
+                  <div class="card shopping-card">
+                    <img src="${product.getMainImage()}" class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title">${product.getItemName()}</h5>
+                      <p class="card-text"><span>&#8377;</span>  ${product.getBdp()}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </c:if>
+          </c:forEach>
+        </div>
 
         <div class="row">
           <div class="section-header">
@@ -65,7 +86,7 @@
                     <img src="${product.getMainImage()}" class="card-img-top">
                     <div class="card-body">
                       <h5 class="card-title">${product.getItemName()}</h5>
-                      <p class="card-text"><span>&#8377;</span>  ${product.getMrp()}</p>
+                      <p class="card-text"><span>&#8377;</span>  ${product.getBdp()}</p>
                     </div>
                   </div>
                 </a>
@@ -92,7 +113,7 @@
                         <img src="${product.getMainImage()}" class="card-img-top">
                         <div class="card-body">
                           <h5 class="card-title">${product.getItemName()}</h5>
-                          <p class="card-text"><span>&#8377;</span>  ${product.getMrp()}</p>
+                          <p class="card-text"><span>&#8377;</span>  ${product.getBdp()}</p>
                         </div>
                       </div>
                     </a>
@@ -107,7 +128,7 @@
       </div>
       <%@include file="script.jsp" %>
         <script>
-          var swiper = new Swiper(".mySwiper", {
+          var swiper = new Swiper(".HomemySwiper", {
             loop: true,
             grabCursor: true,
             effect: "creative",

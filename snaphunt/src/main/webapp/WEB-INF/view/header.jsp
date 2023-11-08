@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light position-sticky top-0" style="z-index: 1000;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img src="https://res.cloudinary.com/dcbbqwxzr/image/upload/v1692541432/2-removebg-preview_xw8lfi.png" alt="Universe  " height="24">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,12 +9,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <div class="search-box d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search your product and brand" aria-label="Search">
+          <form class="search-box d-flex" role="search" action="/search-view/" method="get">
+            
+            <input class="form-control me-2" type="search" placeholder="Search your product and brand" aria-label="Search" id="search-filter" name="searchdata">
             <button class="btn btn-primary" type="submit">
               <i class="bi bi-search"></i>
             </button>
-          </div>
+          </form>
           <li class="nav-item">
             <a class="nav-link" href="http://localhost:8081/" target="_blank">Become a seller</a>
           </li>
@@ -55,3 +56,19 @@
       </div>
     </div>
   </nav>
+
+
+<script>
+  $(function() {
+            var availableTags = [
+                <c:forEach items="${productTags}" var="productTag">
+                    '<c:out value="${productTag}"/>',
+                </c:forEach>
+            ];
+
+            // Initialize the Autocomplete widget
+            $( "#search-filter" ).autocomplete({
+                source: availableTags
+            });
+        });
+</script>

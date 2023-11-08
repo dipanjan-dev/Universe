@@ -7,4 +7,6 @@ import com.snaphunt.snaphunt.Model.Product;
 public interface ProductService {
     public List<Product> geProducts();
     public Product getProductDetails(String ProductName,String ProductId);
+    public List<Object[]> getProductTags();
+     public List<Product> getSeachList(String Data);
 }
